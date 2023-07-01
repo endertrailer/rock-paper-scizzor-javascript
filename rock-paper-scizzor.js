@@ -23,7 +23,7 @@ function getComputerChoice() {
       } else if (computerSelection === 'scissor') {
         return 'win';
       } else {
-        return;
+        return 'tie';
       }
     } else if (playerSelection === 'paper') {
       if (computerSelection === 'scissor') {
@@ -31,7 +31,7 @@ function getComputerChoice() {
       } else if (computerSelection === 'rock') {
         return 'win';
       } else {
-        return;
+        return 'tie';
       }
     } else if (playerSelection === 'scissor') {
       if (computerSelection === 'rock') {
@@ -39,7 +39,7 @@ function getComputerChoice() {
       } else if (computerSelection === 'paper') {
         return 'win';
       } else {
-        return;
+        return 'tie';
       }
     } else {
       return 'invalid input';
@@ -49,12 +49,14 @@ function getComputerChoice() {
   let round = 0;
   let computerWins = 0;
   let playerWins = 0;
+  let ties = 0;
   const result = document.querySelector('.result');
   const rock = document.querySelector('.rock');
   const paper = document.querySelector('.paper');
   const scissor = document.querySelector('.scissor');
   const playerScore = document.querySelector('.wins');
   const computerScore = document.querySelector('.loss')
+  const tiesCount = document.querySelector('.tie')
   
   function updateResult() {
     if (round === 5) {
@@ -68,9 +70,10 @@ function getComputerChoice() {
       round = 0;
       computerWins = 0;
       playerWins = 0;
+      ties = 0;
       playerScore.textContent = `Wins: 0`;
       computerScore.textContent = `Losses: 0`;
-
+      tiesCount.textContent = 'Ties: 0';
     }
   }
   
@@ -82,6 +85,10 @@ function getComputerChoice() {
     } else if (playRound('rock', getComputerChoice()) === 'lose')  {
       computerWins++;
       computerScore.textContent = `Losses: ${computerWins}`;
+    }
+    else{
+      ties++
+      tiesCount.textContent = `Ties: ${ties}`;
     }
     round++;
     updateResult();
@@ -96,6 +103,10 @@ function getComputerChoice() {
       computerWins++;
       computerScore.textContent = `Losses: ${computerWins}`;
     }
+    else{
+      ties++;
+      tiesCount.textContent = `Ties: ${ties}`;
+    }
     round++;
     updateResult();
   });
@@ -108,6 +119,10 @@ function getComputerChoice() {
     else if (playRound('rock', getComputerChoice()) === 'lose') {
       computerWins++;
       computerScore.textContent = `Losses: ${computerWins}`;
+    }
+    else{
+      ties++;
+      tiesCount.textContent = `Ties: ${ties}`;
     }
     round++;
     updateResult();
