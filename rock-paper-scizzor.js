@@ -79,7 +79,7 @@ function getComputerChoice() {
       playerWins++;
       playerScore.textContent = `Wins: ${playerWins}`;
 
-    } else {
+    } else if (playRound('rock', getComputerChoice()) === 'lose')  {
       computerWins++;
       computerScore.textContent = `Losses: ${computerWins}`;
     }
@@ -92,7 +92,7 @@ function getComputerChoice() {
       playerWins++;
       playerScore.textContent = `Wins: ${playerWins}`;
     
-    } else {
+    } else if (playRound('rock', getComputerChoice()) === 'lose'){
       computerWins++;
       computerScore.textContent = `Losses: ${computerWins}`;
     }
@@ -104,7 +104,8 @@ function getComputerChoice() {
     if (playRound('scissor', getComputerChoice()) === 'win') {
       playerWins++;
       playerScore.textContent = `Wins: ${playerWins}`;
-    } else {
+    } 
+    else if (playRound('rock', getComputerChoice()) === 'lose') {
       computerWins++;
       computerScore.textContent = `Losses: ${computerWins}`;
     }
