@@ -44,3 +44,7 @@ img {
 .play-again-button:hover {
     background-color: #555;
 }
+.wins, .loss{
+    font-size: 20px;
+    color: aliceblue;
+}
